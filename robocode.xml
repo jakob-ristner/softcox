@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="RoboCode">
+			<graphics key="collapsed" value="false"/>
+			<alt mandatory="true" name="Movement">
+				<feature name="Fire_Move"/>
+				<feature name="Wall_Smoothing"/>
+				<and name="Random_Movement">
+					<feature name="Eighty_Twenty_Switch"/>
+				</and>
+				<feature name="Pattern_Movement"/>
+				<and name="Wave_Surfing">
+					<graphics key="collapsed" value="false"/>
+					<feature name="GoTo"/>
+					<or mandatory="true" name="Implementation">
+						<feature name="Range_Search"/>
+						<feature name="kNN_GF"/>
+						<feature name="Dynamic_Clustering"/>
+					</or>
+					<feature name="Melee"/>
+				</and>
+				<feature name="Mirror_Movement"/>
+				<feature name="Stop_n_Go"/>
+				<feature name="Anti_Gravity"/>
+				<feature name="Corner_Movement"/>
+				<feature name="Spin"/>
+				<feature name="Minimum_Risk_Movement"/>
+				<feature name="Orbit"/>
+				<feature name="Near_Perfect_Oscillascion"/>
+			</alt>
+			<alt name="Targeting">
+				<and name="DynamicClustering">
+					<feature name="Play_It_Forward"/>
+				</and>
+				<or name="PatternMatching">
+					<feature name="Symbolic_PM"/>
+					<feature name="Nano_style"/>
+				</or>
+				<feature name="LinearTargeting"/>
+				<and name="GuessFactor">
+					<feature name="kNN_GF_Targeting"/>
+				</and>
+				<feature name="CornerTargeting"/>
+				<feature name="Head_On_Targeting"/>
+				<feature name="Circular_Targeting"/>
+				<feature name="Random"/>
+			</alt>
+			<and name="ChooseEnemy">
+				<feature name="Nearest_Enemy"/>
+				<feature name="Most_Likely_To_Hit"/>
+			</and>
+			<and name="RobotBase">
+				<feature name="Robot"/>
+				<feature name="AdvancedRobot"/>
+			</and>
+			<alt name="Memory">
+				<feature name="GF_Memory"/>
+				<feature name="Velocities"/>
+			</alt>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<disj>
+				<var>Robot</var>
+				<var>AdvancedRobot</var>
+			</disj>
+		</rule>
+	</constraints>
+</featureModel>

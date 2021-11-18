@@ -36,6 +36,7 @@
 				<feature name="Minimum_Risk_Movement"/>
 				<feature name="Orbit"/>
 				<feature name="Near_Perfect_Oscillascion"/>
+				<feature name="Ram"/>
 			</alt>
 			<alt name="Targeting">
 				<and name="DynamicClustering">
@@ -66,6 +67,7 @@
 				<feature name="GF_Memory"/>
 				<feature name="Velocities"/>
 			</alt>
+			<feature name="Radar"/>
 		</and>
 	</struct>
 </featureModel>

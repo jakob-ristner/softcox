@@ -12,10 +12,13 @@
 		<and abstract="true" mandatory="true" name="RoboCode">
 			<graphics key="collapsed" value="false"/>
 			<alt name="Movement">
+				<graphics key="collapsed" value="false"/>
 				<and name="Random_Movement">
+					<graphics key="collapsed" value="false"/>
 					<feature name="Eighty_Twenty_Switch"/>
 				</and>
 				<alt name="Pattern_Movement">
+					<graphics key="collapsed" value="false"/>
 					<feature name="Corner_Movement"/>
 					<feature name="Stop_n_Go"/>
 					<feature name="Spin"/>
@@ -23,6 +26,7 @@
 				<and name="Wave_Surfing">
 					<graphics key="collapsed" value="false"/>
 					<or mandatory="true" name="Implementation">
+						<graphics key="collapsed" value="false"/>
 						<feature name="Range_Search"/>
 						<feature name="kNN_GF"/>
 						<feature name="Dynamic_Clustering"/>
@@ -32,31 +36,36 @@
 				</and>
 				<feature name="Minimum_Risk_Movement"/>
 			</alt>
-			<or name="Memory">
+			<and name="Memory">
+				<graphics key="collapsed" value="false"/>
 				<feature name="GF_Memory"/>
-				<feature name="Velocities"/>
-			</or>
+				<feature name="Log"/>
+			</and>
 			<alt name="Targeting">
-				<and name="DynamicClustering">
-					<feature name="Play_It_Forward"/>
-				</and>
+				<graphics key="collapsed" value="false"/>
 				<or name="PatternMatching">
+					<graphics key="collapsed" value="false"/>
 					<feature name="Symbolic_PM"/>
 					<feature name="Nano_style"/>
 				</or>
 				<and name="GuessFactor">
+					<graphics key="collapsed" value="false"/>
 					<feature name="kNN_GF_Targeting"/>
 				</and>
+				<feature name="Play_It_Forward"/>
 				<feature name="Head_On_Targeting"/>
 				<feature name="Random"/>
 			</alt>
 			<and mandatory="true" name="Radar">
+				<graphics key="collapsed" value="false"/>
 				<alt name="ChooseEnemy">
+					<graphics key="collapsed" value="false"/>
 					<feature name="Nearest_Enemy"/>
 					<feature name="Most_Likely_To_Hit"/>
 				</alt>
 			</and>
 			<alt name="BattleMode">
+				<graphics key="collapsed" value="false"/>
 				<feature name="One_v_One"/>
 				<feature name="Melee"/>
 			</alt>
@@ -74,14 +83,78 @@
 		</rule>
 		<rule>
 			<imp>
-				<var>Velocities</var>
-				<var>Movement</var>
+				<var>ChooseEnemy</var>
+				<var>Melee</var>
 			</imp>
 		</rule>
 		<rule>
 			<imp>
-				<var>ChooseEnemy</var>
+				<var>One_v_One</var>
+				<conj>
+					<disj>
+						<var>Wave_Surfing</var>
+						<disj>
+							<var>Random</var>
+							<var>Stop_n_Go</var>
+						</disj>
+					</disj>
+					<disj>
+						<var>GuessFactor</var>
+						<disj>
+							<var>Play_It_Forward</var>
+							<var>Symbolic_PM</var>
+						</disj>
+					</disj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
 				<var>Melee</var>
+				<conj>
+					<disj>
+						<var>Corner_Movement</var>
+						<disj>
+							<var>Minimum_Risk_Movement</var>
+							<disj>
+								<var>Spin</var>
+								<var>Melee_surf</var>
+							</disj>
+						</disj>
+					</disj>
+					<disj>
+						<var>Head_On_Targeting</var>
+						<disj>
+							<var>GuessFactor</var>
+							<disj>
+								<var>Play_It_Forward</var>
+								<var>Symbolic_PM</var>
+							</disj>
+						</disj>
+					</disj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>PatternMatching</var>
+				<var>Log</var>
+			</imp>
+		</rule>
+		<rule>
+			<disj>
+				<not>
+					<var>Memory</var>
+				</not>
+				<var>GF_Memory</var>
+				<var>Log</var>
+				<var>Movement</var>
+			</disj>
+		</rule>
+		<rule>
+			<imp>
+				<var>Wave_Surfing</var>
+				<var>GF_Memory</var>
 			</imp>
 		</rule>
 	</constraints>

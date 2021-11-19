@@ -11,43 +11,43 @@
 	<struct>
 		<and abstract="true" mandatory="true" name="RoboCode">
 			<graphics key="collapsed" value="false"/>
-			<alt name="Movement">
+			<or name="Movement">
 				<graphics key="collapsed" value="false"/>
 				<and name="Random_Movement">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Eighty_Twenty_Switch"/>
 				</and>
-				<alt name="Pattern_Movement">
+				<or name="Pattern_Movement">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Corner_Movement"/>
 					<feature name="Stop_n_Go"/>
 					<feature name="Spin"/>
-				</alt>
+				</or>
 				<and name="Wave_Surfing">
 					<graphics key="collapsed" value="false"/>
-					<or mandatory="true" name="Implementation">
+					<alt mandatory="true" name="Implementation">
 						<graphics key="collapsed" value="false"/>
 						<feature name="Range_Search"/>
 						<feature name="kNN_GF"/>
 						<feature name="Dynamic_Clustering"/>
-					</or>
+					</alt>
 					<feature name="GoTo"/>
 					<feature name="Melee_surf"/>
 				</and>
 				<feature name="Minimum_Risk_Movement"/>
-			</alt>
-			<alt name="Memory">
+			</or>
+			<or name="Memory">
 				<graphics key="collapsed" value="false"/>
 				<feature name="GF_Memory"/>
 				<feature name="Log"/>
-			</alt>
-			<alt name="Targeting">
+			</or>
+			<or name="Targeting">
 				<graphics key="collapsed" value="false"/>
-				<or name="PatternMatching">
+				<alt name="PatternMatching">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Symbolic_PM"/>
 					<feature name="Nano_style"/>
-				</or>
+				</alt>
 				<and name="GuessFactor">
 					<graphics key="collapsed" value="false"/>
 					<feature name="kNN_GF_Targeting"/>
@@ -55,20 +55,20 @@
 				<feature name="Play_It_Forward"/>
 				<feature name="Head_On_Targeting"/>
 				<feature name="Random"/>
-			</alt>
+			</or>
 			<and mandatory="true" name="Radar">
 				<graphics key="collapsed" value="false"/>
-				<alt name="ChooseEnemy">
+				<or name="ChooseEnemy">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Nearest_Enemy"/>
 					<feature name="Most_Likely_To_Hit"/>
-				</alt>
+				</or>
 			</and>
-			<alt name="BattleMode">
+			<or name="BattleMode">
 				<graphics key="collapsed" value="false"/>
 				<feature name="One_v_One"/>
 				<feature name="Melee"/>
-			</alt>
+			</or>
 		</and>
 	</struct>
 	<constraints>

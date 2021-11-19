@@ -36,11 +36,11 @@
 				</and>
 				<feature name="Minimum_Risk_Movement"/>
 			</alt>
-			<and name="Memory">
+			<alt name="Memory">
 				<graphics key="collapsed" value="false"/>
 				<feature name="GF_Memory"/>
 				<feature name="Log"/>
-			</and>
+			</alt>
 			<alt name="Targeting">
 				<graphics key="collapsed" value="false"/>
 				<or name="PatternMatching">

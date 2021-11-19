@@ -28,7 +28,7 @@
 						<feature name="Dynamic_Clustering"/>
 					</or>
 					<feature name="GoTo"/>
-					<feature name="Melee"/>
+					<feature name="Melee_surf"/>
 				</and>
 				<feature name="Minimum_Risk_Movement"/>
 			</alt>
@@ -50,9 +50,15 @@
 				<feature name="Head_On_Targeting"/>
 				<feature name="Random"/>
 			</alt>
-			<alt name="ChooseEnemy">
-				<feature name="Nearest_Enemy"/>
-				<feature name="Most_Likely_To_Hit"/>
+			<and mandatory="true" name="Radar">
+				<alt name="ChooseEnemy">
+					<feature name="Nearest_Enemy"/>
+					<feature name="Most_Likely_To_Hit"/>
+				</alt>
+			</and>
+			<alt name="BattleMode">
+				<feature name="One_v_One"/>
+				<feature name="Melee"/>
 			</alt>
 		</and>
 	</struct>
@@ -70,6 +76,12 @@
 			<imp>
 				<var>Velocities</var>
 				<var>Movement</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>ChooseEnemy</var>
+				<var>Melee</var>
 			</imp>
 		</rule>
 	</constraints>

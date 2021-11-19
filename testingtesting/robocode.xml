@@ -142,16 +142,6 @@
 			</imp>
 		</rule>
 		<rule>
-			<disj>
-				<not>
-					<var>Memory</var>
-				</not>
-				<var>GF_Memory</var>
-				<var>Log</var>
-				<var>Movement</var>
-			</disj>
-		</rule>
-		<rule>
 			<imp>
 				<var>Wave_Surfing</var>
 				<var>GF_Memory</var>

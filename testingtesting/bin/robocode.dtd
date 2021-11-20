@@ -1,0 +1,5 @@
+<!ELEMENT featureModel (properties,struct,constraints)>
+<!ELEMENT properties (graphics+)>
+<!ELEMENT graphics EMPTY>
+<!ATTLIST graphics key NMTOKEN #REQUIRED>
+<!ATTLIST graphics value (1|false|horizontal|true) #REQUIRED><!ELEMENT struct (and)><!ELEMENT and (graphics,or*,and?,feature*,alt?)><!ATTLIST and abstract NMTOKEN #IMPLIED><!ATTLIST and mandatory NMTOKEN #IMPLIED><!ATTLIST and name NMTOKEN #REQUIRED><!ELEMENT or (graphics,and*,or?,feature+,alt?)><!ATTLIST or name NMTOKEN #REQUIRED><!ELEMENT feature EMPTY><!ATTLIST feature name ID #REQUIRED><!ELEMENT alt (graphics,feature+)><!ATTLIST alt mandatory NMTOKEN #IMPLIED><!ATTLIST alt name NMTOKEN #REQUIRED><!ELEMENT constraints (rule+)><!ELEMENT rule (imp)><!ELEMENT imp (var+,disj?,conj?)><!ELEMENT var (#PCDATA)><!ELEMENT disj (var+,disj?)><!ELEMENT conj (disj+)>

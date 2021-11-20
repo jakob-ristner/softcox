@@ -94,7 +94,7 @@
 					<disj>
 						<var>Wave_Surfing</var>
 						<disj>
-							<var>Random</var>
+							<var>Random_Movement</var>
 							<var>Stop_n_Go</var>
 						</disj>
 					</disj>
@@ -143,8 +143,14 @@
 		</rule>
 		<rule>
 			<imp>
-				<var>Wave_Surfing</var>
+				<var>kNN_GF</var>
 				<var>GF_Memory</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Dynamic_Clustering</var>
+				<var>Log</var>
 			</imp>
 		</rule>
 	</constraints>
